@@ -2,11 +2,12 @@
 #include "initHub.c"
 #include "constants.h"
 #include "checkStatus.c"
+#include "debugging.h"
 
 int main(){
+	retHub();
 	struct hub hubs[4];
 	FILE *testFile = fopen("/sys/bus/usb/devices/1-1/power/runtime_status", "r");
-	//printf("test: %d\n", hub1.id);
 
 	if (!testFile){
 		printf("file not found.");
@@ -22,8 +23,9 @@ int main(){
 		}
 		else {printf("yay\n");}
 	}	
-
+	printf("\n-------going to initHub.c---------\n");
 	initializeHubs(hubs);
+	printf("\n\n-------inside returnHubs.c-------\n");
 	for (int i=0; i<4; i++){
 		printf("print from main: %s\n", hubs[i].hubPath);
 	}

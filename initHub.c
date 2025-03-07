@@ -11,12 +11,14 @@
  		for (int i=0; i<4; i++){
  			char firstPath[30] = "/sys/bus/usb/devices/1-1.";
  			hubby[i].id = i+1;
- 			
  			sprintf(firstPath + strlen(firstPath), "%d", (i+1));
  			
  			hubNums[i] = malloc(50); // allocates 50 byte block for each array
- 			
+
+ 			// addrs 'firstPath' to hubNums[i]
  			strcpy(hubNums[i], firstPath);
+
+ 			// 'lastPath'
  			strcat(hubNums[i], lastPath);
  		}
  		
